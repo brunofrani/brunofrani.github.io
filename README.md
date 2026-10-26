@@ -19,7 +19,7 @@ Then open <http://localhost:4000>.
 | `index.html` | Home page |
 | `_projects/` | One Markdown file per project, published at `/projects/<name>/` |
 | `projects/<name>/` | A project's own extra pages, such as its Privacy Policy and Terms |
-| `_posts/` | Articles, published at `/articles/<title>/` (the Articles section appears once the first one exists) |
+| `_posts/` | Articles, published at `/articles/<title>/` (listed under Articles in the top bar; the home page section appears once the first one exists) |
 | `_layouts/`, `_includes/` | Page templates |
 | `assets/css/site.css` | All styling, light and dark |
 
