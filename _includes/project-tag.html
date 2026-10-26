@@ -1,0 +1,12 @@
+{%- comment -%}
+  The project an article belongs to, as a small label. A link when `link=true`,
+  plain text inside list items whose title is already the link.
+{%- endcomment -%}
+{%- assign tag_project = site.projects | where: "slug", include.project | first -%}
+{%- if tag_project -%}
+{%- if include.link -%}
+<a class="tag" href="{{ tag_project.url | relative_url }}" style="--project-accent: {{ tag_project.accent | default: 'var(--accent)' }}">{{ tag_project.title }}</a>
+{%- else -%}
+<span class="tag" style="--project-accent: {{ tag_project.accent | default: 'var(--accent)' }}">{{ tag_project.title }}</span>
+{%- endif -%}
+{%- endif -%}

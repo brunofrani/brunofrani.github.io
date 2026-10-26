@@ -1,0 +1,17 @@
+---
+layout: default
+title: Articles
+description: Articles by Bruno Frani on building Tilt Runner, iOS development and more.
+---
+<h1>Articles</h1>
+<p class="lede">How Tilt Runner is built, iOS development, and whatever else is on my mind.</p>
+{%- if site.posts.size > 0 %}
+<ul class="article-list">
+  {%- for post in site.posts %}
+  {% include article-item.html post=post heading="h2" %}
+  {%- endfor %}
+</ul>
+<p class="meta"><a href="{{ '/feed.xml' | relative_url }}">Subscribe with RSS</a></p>
+{%- else %}
+<p>The first articles are on their way.</p>
+{%- endif %}

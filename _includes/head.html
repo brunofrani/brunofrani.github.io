@@ -2,6 +2,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
 {% seo %}
+{%- if page.app_store_id %}
+<meta name="apple-itunes-app" content="app-id={{ page.app_store_id }}">
+{%- endif %}
 <link rel="icon" href="{{ '/assets/images/favicon.svg' | relative_url }}" type="image/svg+xml">
 <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
 {% feed_meta %}

@@ -1,0 +1,15 @@
+{%- assign post = include.post -%}
+{%- assign heading = include.heading | default: "h2" -%}
+<li class="article-item">
+  <p class="meta">
+    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+    <span aria-hidden="true">·</span>
+    {% include reading-time.html content=post.content %}
+    {%- if post.project and include.hide_project != true %}
+    <span aria-hidden="true">·</span>
+    {% include project-tag.html project=post.project %}
+    {%- endif %}
+  </p>
+  <{{ heading }} class="article-item__title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></{{ heading }}>
+  <p class="article-item__summary">{{ post.description | default: post.excerpt | strip_html | truncatewords: 40 }}</p>
+</li>

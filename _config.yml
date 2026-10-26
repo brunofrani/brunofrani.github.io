@@ -17,7 +17,8 @@ author:
 github_username: brunofrani
 
 # Projects live in _projects/, one file each. Their legal pages live beside
-# them under projects/<project>/.
+# them under projects/<project>/. Articles live in _posts/; one that sets
+# `project: <name>` is also listed on that project's page.
 collections:
   projects:
     output: true
@@ -38,6 +39,7 @@ defaults:
       type: posts
     values:
       layout: post
+      permalink: /articles/:title/
 
 permalink: pretty
 
@@ -51,8 +53,3 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - vendor
-
-# Legal pages open with an automatic table of contents built from their
-# second-level headings.
-kramdown:
-  toc_levels: "2..2"

@@ -1,28 +1,28 @@
 ---
 title: Tilt Runner
-tagline: Tilt your iPhone to steer a ball down an endless field. Dodge the holes, grab the coins, and unlock new worlds.
-description: Tilt Runner is an iPhone game where you tilt your phone to steer a ball down an endless field, dodging holes and collecting coins across nine worlds.
-platform: iOS
-status: Coming soon
+tagline: Tilt to steer a ball down an endless field. Dodge the holes, collect coins, and unlock new balls and arenas.
+description: Tilt Runner is a free arcade game for iPhone and iPad. Tilt your device to steer a ball down an endless field, dodge the holes and survive as long as you can.
+platform: iPhone & iPad
+status: On the App Store
 order: 1
 accent: "#0b7a83"
 icon: /assets/images/projects/tilt-runner-icon.png
 image: /assets/images/projects/tilt-runner-icon.png
-# Add the App Store link once the listing is live; the page swaps its
-# "Coming soon" label for a download button.
-app_store_url:
+# The App Store id, from the listing URL (…/id6749026423). It drives the
+# download button and Safari's Smart App Banner. The link it builds has no
+# country in it, so every visitor lands in their own App Store.
+app_store_id: "6749026423"
 ---
 
-Tilt Runner is an arcade game with no buttons to press while you play. Hold your iPhone, tilt it, and the ball rolls where you lean. The field keeps scrolling and keeps speeding up, and every run ends the moment you drop into a hole or roll off the edge.
+Tilt Runner is an arcade game with no buttons to press while you play. Hold your iPhone or iPad, tilt it, and the ball rolls where you lean. The field keeps coming, and the run ends the moment you drop into a hole. How long can you last?
 
 ## What's in it
 
-- **Nine worlds to travel through**, from the Training Ground to Desert Ruins, the City, Arctic Rift, the Jungle, Sandy Shores, the Volcano, Sky Kingdom and the Crystal Realm, each drawn in its own style.
-- **A collection to build.** Spend the coins you pick up on new balls, trails and arenas.
-- **Steering that suits you.** Adjust the tilt sensitivity in Settings to match how you hold your phone.
-- **Leaderboards** through Game Center, so you can see how your best run compares.
-- **Progress that follows you.** With iCloud turned on, your coins and unlocks sync across your devices.
+- **Easy to learn, tough to master.** One control, tilting, and a field that keeps testing it.
+- **Coins to collect** on every run.
+- **New balls and arenas** to unlock as you play.
+- **Free to play**, with optional in-app purchases if you'd rather unlock things straight away.
 
-## Fair to play
+## What's next
 
-Tilt Runner is free. Video ads are optional: you only see one when you choose to watch it for a reward, like refilling energy or doubling the coins from a run. Coin packs are available as in-app purchases if you'd rather skip ahead.
+Version 2 is in the works, with nine worlds to travel through, trails for your ball, Game Center leaderboards, and progress that syncs across your devices with iCloud.

@@ -31,17 +31,16 @@ layout: default
 </section>
 
 {%- if site.posts.size > 0 %}
-<section class="section" aria-labelledby="writing-heading">
+<section class="section" aria-labelledby="articles-heading">
   <div class="section-head">
-    <h2 id="writing-heading">Writing</h2>
-    <a href="{{ '/writing/' | relative_url }}">All posts &rarr;</a>
+    <h2 id="articles-heading">Articles</h2>
+    {%- if site.posts.size > 3 %}
+    <a href="{{ '/articles/' | relative_url }}">All articles &rarr;</a>
+    {%- endif %}
   </div>
-  <ul class="post-list">
-    {%- for post in site.posts limit: 5 %}
-    <li>
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %Y" }}</time>
-    </li>
+  <ul class="article-list">
+    {%- for post in site.posts limit: 3 %}
+    {% include article-item.html post=post heading="h3" %}
     {%- endfor %}
   </ul>
 </section>

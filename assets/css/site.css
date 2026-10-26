@@ -142,6 +142,10 @@ h3 {
   letter-spacing: 0.08em;
 }
 
+.nowrap {
+  white-space: nowrap;
+}
+
 mark.todo {
   padding: 0.05em 0.35em;
   background: var(--mark);
@@ -500,25 +504,297 @@ main {
   margin-bottom: 0;
 }
 
-.post-list {
+.prose blockquote {
+  margin: 1.5rem 0;
+  padding-left: 1.1rem;
+  border-left: 3px solid var(--line);
+  color: var(--muted);
+}
+
+.prose img {
+  margin: 1.75rem auto;
+  border-radius: 10px;
+}
+
+.prose figure {
+  margin: 1.75rem 0;
+}
+
+.prose figure img {
+  margin: 0 auto;
+}
+
+.prose figcaption {
+  margin-top: 0.6rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+  text-align: center;
+}
+
+/* Wide tables scroll inside themselves rather than widening the page. */
+.prose table {
+  display: block;
+  max-width: 100%;
+  margin: 0 0 1.25rem;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.prose th,
+.prose td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.prose th {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Code -------------------------------------------------------------------- */
+
+/* Xcode's default light and dark themes, so Swift reads the way it does in
+   the editor. Token classes are Rouge's, which Jekyll highlights with. */
+:root {
+  --code-bg: #f6f5f2;
+  --code-text: #1f1f24;
+  --code-comment: #5d6c79;
+  --code-keyword: #9b2393;
+  --code-string: #c41a16;
+  --code-number: #1c00cf;
+  --code-type: #0b4f79;
+  --code-function: #326d74;
+  --code-attribute: #815f03;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --code-bg: #1f2024;
+    --code-text: #dfdfe0;
+    --code-comment: #7f8c98;
+    --code-keyword: #ff7ab2;
+    --code-string: #ff8170;
+    --code-number: #d9c97c;
+    --code-type: #6bdfff;
+    --code-function: #67b7a4;
+    --code-attribute: #cc9768;
+  }
+}
+
+.prose pre {
+  margin: 0 0 1.25rem;
+  padding: 1rem 1.15rem;
+  overflow-x: auto;
+  background: var(--code-bg);
+  color: var(--code-text);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: 0.84rem;
+  line-height: 1.6;
+  tab-size: 4;
+}
+
+.prose pre code {
+  padding: 0;
+  background: none;
+  border: 0;
+  font-size: inherit;
+}
+
+.highlight .c, .highlight .c1, .highlight .cm, .highlight .cs, .highlight .cd, .highlight .cp { color: var(--code-comment); font-style: italic; }
+.highlight .k, .highlight .kd, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kc, .highlight .ow { color: var(--code-keyword); font-weight: 600; }
+.highlight .s, .highlight .s1, .highlight .s2, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .se, .highlight .sh, .highlight .si, .highlight .sx, .highlight .sr, .highlight .ss { color: var(--code-string); }
+.highlight .m, .highlight .mi, .highlight .mf, .highlight .mh, .highlight .mo, .highlight .il { color: var(--code-number); }
+.highlight .kt, .highlight .nc, .highlight .nn, .highlight .nb, .highlight .bp, .highlight .no { color: var(--code-type); }
+.highlight .nf, .highlight .fm { color: var(--code-function); }
+.highlight .nd, .highlight .na, .highlight .nt { color: var(--code-attribute); }
+.highlight .gd { color: var(--code-string); }
+.highlight .gi { color: var(--code-function); }
+.highlight .err { color: inherit; background: none; }
+
+/* Articles ---------------------------------------------------------------- */
+
+.article-list {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.post-list li {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  padding-block: 0.75rem;
+.article-item {
+  padding-block: 1.25rem;
   border-bottom: 1px solid var(--line);
 }
 
-.post-list time {
+.article-item:first-child {
+  padding-top: 0.25rem;
+}
+
+.article-item .meta {
+  margin-bottom: 0.4rem;
+}
+
+.article-item__title {
+  margin: 0 0 0.35rem;
+  font-size: 1.15rem;
+  line-height: 1.35;
+}
+
+.article-item__title a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.article-item__title a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.article-item__summary {
+  margin: 0;
   color: var(--muted);
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* The project an article belongs to: its name with a dot in its colour. */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  color: var(--muted);
   white-space: nowrap;
+}
+
+.tag::before {
+  content: "";
+  width: 0.55em;
+  height: 0.55em;
+  border-radius: 50%;
+  background: var(--project-accent, var(--accent));
+}
+
+a.tag {
+  text-decoration: none;
+}
+
+a.tag:hover {
+  color: var(--text);
+}
+
+.article-header {
+  max-width: var(--measure);
+  margin-bottom: 2.25rem;
+}
+
+.article-header .lede {
+  margin-bottom: 0;
+}
+
+.related-box {
+  margin-top: 3rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.related-box__project {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.related-box__project > span {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.related-box__project .meta {
+  margin: 0;
+}
+
+.related-box__project strong {
+  font-size: 1.05rem;
+}
+
+.related-box__project:hover strong {
+  color: var(--project-accent);
+}
+
+.related-box__tagline {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.related-box h2 {
+  margin: 1.25rem 0 0.5rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.95rem;
+}
+
+.related-box ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.app-icon--small {
+  width: 48px;
+  height: 48px;
+}
+
+.post-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.post-nav a {
+  display: grid;
+  gap: 0.2rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--text);
+  font-weight: 600;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.post-nav a:hover {
+  border-color: var(--accent);
+}
+
+.post-nav .meta {
+  margin: 0;
+  font-weight: 400;
+}
+
+.post-nav__next {
+  grid-column: 2;
+  text-align: right;
+}
+
+@media (max-width: 480px) {
+  .post-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .post-nav__next {
+    grid-column: auto;
+  }
+}
+
+.project-articles {
+  margin-top: 3rem;
 }
 
 /* Legal pages ------------------------------------------------------------- */
@@ -549,28 +825,6 @@ main {
 
 .legal h3 {
   font-size: 1.02rem;
-}
-
-.legal #markdown-toc {
-  margin: 0 0 2rem;
-  padding: 1rem 1.25rem 1rem 2.5rem;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  font-size: 0.95rem;
-}
-
-.legal #markdown-toc li {
-  margin-bottom: 0.2rem;
-}
-
-.legal #markdown-toc a {
-  color: var(--text);
-  text-decoration: none;
-}
-
-.legal #markdown-toc a:hover {
-  color: var(--accent);
-  text-decoration: underline;
 }
 
 @media (prefers-reduced-motion: reduce) {
