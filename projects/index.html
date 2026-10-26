@@ -1,0 +1,13 @@
+---
+layout: default
+title: Projects
+description: Apps and games by Bruno Frani.
+---
+{%- assign projects = site.projects | sort: "order" -%}
+<h1>Projects</h1>
+<p class="lede">Apps and games I build on my own time.</p>
+<div class="project-list">
+  {%- for project in projects %}
+  {% include project-card.html project=project heading="h2" %}
+  {%- endfor %}
+</div>

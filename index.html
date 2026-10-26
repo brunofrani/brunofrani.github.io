@@ -1,4 +1,48 @@
 ---
-layout: home
-author_profile: true
+layout: default
 ---
+{%- assign email = site.author.email | strip -%}
+{%- assign projects = site.projects | sort: "order" -%}
+
+<section class="intro">
+  <p class="eyebrow">iOS developer</p>
+  <h1>Hi, I'm Bruno.</h1>
+  <p class="lede">I build small, carefully made apps and games for iPhone. This is where my personal projects live.</p>
+  <p class="intro__links">
+    <a href="https://github.com/{{ site.github_username }}">GitHub</a>
+    {%- if email != "" %}
+    <a href="mailto:{{ email }}">{{ email }}</a>
+    {%- endif %}
+  </p>
+</section>
+
+<section class="section" aria-labelledby="projects-heading">
+  <div class="section-head">
+    <h2 id="projects-heading">Projects</h2>
+    {%- if projects.size > 3 %}
+    <a href="{{ '/projects/' | relative_url }}">All projects &rarr;</a>
+    {%- endif %}
+  </div>
+  <div class="project-list">
+    {%- for project in projects limit: 3 %}
+    {% include project-card.html project=project heading="h3" %}
+    {%- endfor %}
+  </div>
+</section>
+
+{%- if site.posts.size > 0 %}
+<section class="section" aria-labelledby="writing-heading">
+  <div class="section-head">
+    <h2 id="writing-heading">Writing</h2>
+    <a href="{{ '/writing/' | relative_url }}">All posts &rarr;</a>
+  </div>
+  <ul class="post-list">
+    {%- for post in site.posts limit: 5 %}
+    <li>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %Y" }}</time>
+    </li>
+    {%- endfor %}
+  </ul>
+</section>
+{%- endif %}

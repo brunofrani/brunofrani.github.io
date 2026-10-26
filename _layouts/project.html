@@ -1,0 +1,42 @@
+---
+layout: default
+---
+{%- comment -%}
+  A project's legal pages are ordinary pages whose front matter names the
+  project (`project: tilt-runner`); they are found here rather than listed by
+  hand, so adding one is a single new file.
+{%- endcomment -%}
+{%- assign legal_pages = site.pages | where: "project", page.slug | sort: "title" -%}
+<article class="project" style="--project-accent: {{ page.accent | default: 'var(--accent)' }}">
+  <a class="back-link" href="{{ '/projects/' | relative_url }}">&larr; All projects</a>
+
+  <header class="project-hero">
+    {%- if page.icon %}
+    <img class="app-icon app-icon--large" src="{{ page.icon | relative_url }}" alt="{{ page.title }} app icon" width="112" height="112">
+    {%- endif %}
+    <div>
+      <p class="meta">{{ page.platform }} · {{ page.status }}</p>
+      <h1>{{ page.title }}</h1>
+      <p class="lede">{{ page.tagline }}</p>
+      {%- if page.app_store_url %}
+      <a class="button" href="{{ page.app_store_url }}">Download on the App Store</a>
+      {%- else %}
+      <span class="button button--quiet">Coming soon to the App Store</span>
+      {%- endif %}
+    </div>
+  </header>
+
+  <div class="prose">
+    {{ content }}
+  </div>
+
+  <section class="support-box" aria-labelledby="support-heading">
+    <h2 id="support-heading">Support &amp; legal</h2>
+    <ul>
+      <li>Questions, bug reports or feedback: {% include contact-email.html %}</li>
+      {%- for doc in legal_pages %}
+      <li><a href="{{ doc.url | relative_url }}">{{ doc.short_title | default: doc.title }}</a></li>
+      {%- endfor %}
+    </ul>
+  </section>
+</article>

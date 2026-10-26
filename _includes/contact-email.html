@@ -1,0 +1,11 @@
+{%- comment -%}
+  The contact address used on legal and project pages. Rendered as a highlighted
+  reminder until author.email is set in _config.yml, so a missing address is
+  impossible to overlook rather than silently absent.
+{%- endcomment -%}
+{%- assign email = site.author.email | strip -%}
+{%- if email != "" -%}
+<a href="mailto:{{ email }}">{{ email }}</a>
+{%- else -%}
+<mark class="todo">contact email — set author.email in _config.yml</mark>
+{%- endif -%}
