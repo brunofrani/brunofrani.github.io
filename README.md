@@ -53,12 +53,13 @@ caption, use `<figure>` with an `<img>` and a `<figcaption>`.
 To preview an unfinished article, put it in `_drafts/` (no date in the file
 name) and run `bundle exec jekyll serve --drafts`. Drafts are never published.
 
-## Tilt Runner legal pages
+## Tilt Runner support and legal pages
 
+- Support: <https://brunofrani.github.io/projects/tilt-runner/support/>
 - Privacy Policy: <https://brunofrani.github.io/projects/tilt-runner/privacy/>
 - Terms of Service: <https://brunofrani.github.io/projects/tilt-runner/terms/>
-- Support page (for App Store Connect): <https://brunofrani.github.io/projects/tilt-runner/>
+- Project page: <https://brunofrani.github.io/projects/tilt-runner/>
 
-Set these as the Privacy Policy URL and Support URL in App Store Connect.
+In App Store Connect, set the Support URL to the support page, the Privacy Policy URL to the privacy page, and (optionally) the Marketing URL to the project page.
 
 When the game's data handling changes (a new SDK, a new kind of data), update the Privacy Policy and its `last_updated` date in the same release.
